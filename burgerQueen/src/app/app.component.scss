@@ -1,0 +1,8 @@
+$main-fonts: Arial, sans-serif;
+$headings-color: green;
+
+//To use variables:
+li {
+  font-family: $main-fonts;
+  color: $headings-color;
+}
