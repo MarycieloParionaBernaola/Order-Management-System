@@ -1,0 +1,7 @@
+@mixin containers ($padding, $border-radius) {
+  border: 1.5px solid #4D4D4D;
+  padding: $padding;
+  border-radius: $border-radius;
+  -moz-border-radius: $border-radius;
+  -webkit-border-radius: $border-radius;
+}
