@@ -1,0 +1,40 @@
+@import '../../../../mixin.scss';
+
+.hover-icon {
+  border: 1.5px solid rgba(77, 77, 77, 0.49);
+  border-left: 4px solid #22FF90;
+}
+
+:host {
+  @include containers(0px, 13px);
+  display: block;
+  grid-area: side-bar;
+  text-align: center;
+}
+
+h2 {
+  padding: 10px;
+}
+
+ul {
+  font-size: 30px;
+
+  li {
+    padding: 7px;
+    cursor: pointer;
+    p{
+      font-size: 14px;
+    }
+  }
+
+  li:hover {
+    @extend .hover-icon;
+
+  }
+
+  li:active {
+    color:  #22FF90;
+  }
+}
+
+
