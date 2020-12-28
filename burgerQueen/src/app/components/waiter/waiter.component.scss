@@ -1,0 +1,11 @@
+:host {
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-areas:
+  'side-bar dynamic-board order-list'
+  'side-bar dynamic-board order';
+  grid-template-columns: 0.5fr 2.5fr 2.5fr;
+  grid-template-rows: 565px;
+  grid-gap: 10px;
+}

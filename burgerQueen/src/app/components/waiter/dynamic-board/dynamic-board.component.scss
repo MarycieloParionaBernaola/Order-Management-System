@@ -1,0 +1,7 @@
+@import '../../../../mixin.scss';
+
+:host {
+  @include containers(10px, 13px);
+  grid-area: dynamic-board;
+}
+
