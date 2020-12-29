@@ -21,4 +21,9 @@ export class SideBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  selectedIcon!: any[];
+  onSelect(icon: any): void {
+    this.selectedIcon= icon;
+    console.log(`selectedIcon = ${JSON.stringify(this.selectedIcon)}`);
+  }
 }
