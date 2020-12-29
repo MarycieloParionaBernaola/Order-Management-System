@@ -19,15 +19,15 @@ form {
     grid-gap: 10px;
     text-align: center;
 
-    .client {
+    label:nth-child(1) {
       grid-area: client;
     }
 
-    .order-number {
+    label:nth-child(2) {
       grid-area: order-number;
     }
 
-    .table-number {
+    label:nth-child(3) {
       grid-area: table-number;
     }
 
