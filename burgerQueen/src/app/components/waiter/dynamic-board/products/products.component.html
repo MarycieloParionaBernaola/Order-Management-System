@@ -4,7 +4,7 @@
   <h3>DRINKS</h3>
   <ul>
     <ng-container *ngFor="let p of products">
-      <li *ngIf="p.category === 'drinks'">
+      <li *ngIf="p.category === 'drinks'" [class.selected]="p === selectedProduct" (click)="onSelect(p)">
         <img src={{p.img}} />
         <h4>{{p.name}}</h4>
         <p>${{p.price}}</p>
@@ -17,7 +17,7 @@
   <h3>BURGERS & SANDWICHES</h3>
   <ul>
     <ng-container *ngFor="let p of products">
-      <li *ngIf="p.category === 'burgers and sandwiches'">
+      <li *ngIf="p.category === 'burgers and sandwiches'" [class.selected]="p === selectedProduct" (click)="onSelect(p)">
         <img src={{p.img}} />
         <h4>{{p.name}}</h4>
         <p>${{p.price}}</p>
@@ -30,7 +30,7 @@
   <h3>SIDE</h3>
   <ul>
     <ng-container *ngFor="let p of products">
-      <li *ngIf="p.category === 'side'">
+      <li *ngIf="p.category === 'side'" [class.selected]="p === selectedProduct" (click)="onSelect(p)">
         <img src={{p.img}} />
         <h4>{{p.name}}</h4>
         <p>${{p.price}}</p>

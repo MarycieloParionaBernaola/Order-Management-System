@@ -9,6 +9,11 @@ h2 {
   @include title-components;
 }
 
+.selected {
+  border: 2px solid #22FF90 !important;
+  color: #22FF90;
+}
+
 section {
   padding: 10px 0;
   ul {

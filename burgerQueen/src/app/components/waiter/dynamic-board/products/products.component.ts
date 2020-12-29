@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/product';
 import { ProductService } from '../../../../services/product.service';
 
 @Component({
@@ -16,5 +17,11 @@ export class ProductsComponent implements OnInit {
       console.log(products);
       this.products = products;
     });
+  }
+
+  selectedProduct!: Product;
+  onSelect(product: Product): void {
+    this.selectedProduct = product;
+    console.log(`selectedProduct = ${JSON.stringify(this.selectedProduct)}`);
   }
 }
