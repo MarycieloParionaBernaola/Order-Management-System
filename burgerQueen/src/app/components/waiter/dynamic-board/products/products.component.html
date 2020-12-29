@@ -1,8 +1,40 @@
 <h2>PRODUCTS</h2> <br>
-<ul>
-  <li *ngFor="let p of products">
-    <img src={{p.img}} />
-    <h3>{{p.name}}</h3>
-    <p>${{p.price}}</p>
-  </li>
-</ul>
+
+<section>
+  <h3>DRINKS</h3>
+  <ul>
+    <ng-container *ngFor="let p of products">
+      <li *ngIf="p.category === 'drinks'">
+        <img src={{p.img}} />
+        <h4>{{p.name}}</h4>
+        <p>${{p.price}}</p>
+      </li>
+    </ng-container>
+  </ul>
+</section>
+
+<section>
+  <h3>BURGERS & SANDWICHES</h3>
+  <ul>
+    <ng-container *ngFor="let p of products">
+      <li *ngIf="p.category === 'burgers and sandwiches'">
+        <img src={{p.img}} />
+        <h4>{{p.name}}</h4>
+        <p>${{p.price}}</p>
+      </li>
+    </ng-container>
+  </ul>
+</section>
+
+<section>
+  <h3>SIDE</h3>
+  <ul>
+    <ng-container *ngFor="let p of products">
+      <li *ngIf="p.category === 'side'">
+        <img src={{p.img}} />
+        <h4>{{p.name}}</h4>
+        <p>${{p.price}}</p>
+      </li>
+    </ng-container>
+  </ul>
+</section>
