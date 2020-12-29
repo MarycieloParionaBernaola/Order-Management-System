@@ -6,10 +6,7 @@
 }
 
 h2 {
-  font-size: 20px;
-  line-height: 22px;
-  letter-spacing: 0.82em;
-  text-align: center;
+  @include title-components;
 }
 
 section {
@@ -33,7 +30,7 @@ section {
         height: 100%;
       }
 
-      h3{
+      h4{
         margin-top:5px;
       }
 

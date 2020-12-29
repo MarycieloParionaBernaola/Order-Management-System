@@ -4,3 +4,51 @@
   @include containers(10px, 13px);
   grid-area: order;
 }
+
+h2 {
+  @include title-components;
+}
+
+form {
+  padding: 10px;
+  div {
+    display: grid;
+    grid-template-areas:
+    'client client'
+    'order-number table-number';
+    grid-gap: 10px;
+    text-align: center;
+
+    .client {
+      grid-area: client;
+    }
+
+    .order-number {
+      grid-area: order-number;
+    }
+
+    .table-number {
+      grid-area: table-number;
+    }
+
+    input {
+      @include containers(0.5rem, 0.5rem);
+      @include inputs(100px);
+    }
+
+    input[type="text"] {
+      width: 250px;
+    }
+  }
+
+  table {
+    margin: 20px auto;
+    text-align: center;
+    font-size: 16px;
+
+    th{
+      padding: 20px;
+    }
+  }
+
+}

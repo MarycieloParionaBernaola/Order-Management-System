@@ -1,1 +1,48 @@
-<p>order works!</p>
+<h2>ORDER</h2>
+<form [formGroup]="orderForm">
+  <div>
+    <label class="client" >
+      CLIENT:
+      <input type="text" >
+    </label>
+    <label class="order-number">
+      ORDER:
+      <input type="number" value="001" readonly>
+    </label>
+    <label class="table-number" >
+      TABLE:
+      <input type="number" min="1" step="1">
+    </label>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>PRODUCT</th>
+        <th>UNITS</th>
+        <th>PRICE</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Natural juice</td>
+        <td>
+          <fa-icon [icon]="minusIcon"></fa-icon>
+          02
+          <fa-icon [icon]="plusIcon"></fa-icon>
+        </td>
+        <td>14</td>
+        <td><fa-icon [icon]="trashIcon"></fa-icon></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>TOTAL</td>
+        <td></td>
+        <td>$14</td>
+      </tr>
+    </tfoot>
+  </table>
+  <input type="submit" value="SEND">
+</form>

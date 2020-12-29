@@ -20,11 +20,9 @@ header {
 
     input {
       @include containers(0.5rem, 0.5rem);
-      width: 250px;
-      height: 35px;
+      @include inputs(250px);
+      color: #CACACA;
       background-color: transparent;
-      font: normal normal 1.2rem/15px Spartan;
-      color: #979797;
     }
   }
 
@@ -46,3 +44,4 @@ header {
     }
   }
 }
+
