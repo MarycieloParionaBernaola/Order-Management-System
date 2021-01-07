@@ -1,16 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+
+// Reactive form
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 // Routing
 import { AppRoutingModule } from './app-routing.module';
 
-import { AppComponent } from './app.component';
+// Fontawesome
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+// Animations
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Firebase
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+// Components
 import { HeaderComponent } from './components/header/header.component';
 import { SideBarComponent } from './components/waiter/side-bar/side-bar.component';
 import { WaiterComponent } from './components/waiter/waiter.component';
@@ -19,7 +28,7 @@ import { DynamicBoardComponent } from './components/waiter/dynamic-board/dynamic
 import { ProductsComponent } from './components/waiter/dynamic-board/products/products.component';
 import { OrderListComponent } from './components/waiter/order-list/order-list.component';
 import { OrderComponent } from './components/waiter/order/order.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductsCategoryComponent } from './components/waiter/dynamic-board/products/products-category/products-category.component';
 
 
 @NgModule({
@@ -32,14 +41,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DynamicBoardComponent,
     ProductsComponent,
     OrderListComponent,
-    OrderComponent
+    OrderComponent,
+    ProductsCategoryComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase), // Initialize Firebase
-    AngularFirestoreModule, // Firestore
-    FontAwesomeModule, BrowserAnimationsModule
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,40 +1,28 @@
-<h2>PRODUCTS</h2> <br>
+<h2>PRODUCTS</h2>
 
-<section>
-  <h3>DRINKS</h3>
-  <ul>
-    <ng-container *ngFor="let p of products">
-      <li *ngIf="p.category === 'drinks'" [class.selected]="p === selectedProduct" (click)="onSelect(p)">
-        <img src={{p.img}} />
-        <h4>{{p.name}}</h4>
-        <p>${{p.price}}</p>
-      </li>
-    </ng-container>
-  </ul>
-</section>
+<ng-container *ngIf="convertedProducts.length !== 0 then convertedProductsView else totalProducts">
+</ng-container>
 
-<section>
-  <h3>BURGERS & SANDWICHES</h3>
-  <ul>
-    <ng-container *ngFor="let p of products">
-      <li *ngIf="p.category === 'burgers and sandwiches'" [class.selected]="p === selectedProduct" (click)="onSelect(p)">
-        <img src={{p.img}} />
-        <h4>{{p.name}}</h4>
-        <p>${{p.price}}</p>
-      </li>
-    </ng-container>
-  </ul>
-</section>
+<ng-template #convertedProductsView>
+  <app-products-category *ngIf="convertedProducts.length > 0 && convertedProducts.length < 12
+  && convertedProducts !== -1 else notFound"
+  [productsByCategory]="convertedProducts" (selectedProductEmitter)="onSelect($event)">
+  </app-products-category>
+</ng-template>
 
-<section>
-  <h3>SIDE</h3>
-  <ul>
-    <ng-container *ngFor="let p of products">
-      <li *ngIf="p.category === 'side'" [class.selected]="p === selectedProduct" (click)="onSelect(p)">
-        <img src={{p.img}} />
-        <h4>{{p.name}}</h4>
-        <p>${{p.price}}</p>
-      </li>
-    </ng-container>
-  </ul>
-</section>
+<ng-template #totalProducts>
+  <section>
+    <h3>DRINKS</h3>
+    <app-products-category [productsByCategory]="drinks" (selectedProductEmitter)="onSelect($event)">
+    </app-products-category>
+  </section>
+  <section>
+    <h3>FOODS</h3>
+    <app-products-category [productsByCategory]="foods" (selectedProductEmitter)="onSelect($event)">
+    </app-products-category>
+  </section>
+</ng-template>
+
+<ng-template #notFound>
+  <p>Product not found!</p>
+</ng-template>

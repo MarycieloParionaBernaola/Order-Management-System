@@ -1,48 +1,57 @@
 <h2>ORDER</h2>
-<form>
+
+<form [formGroup]="orderForm" (ngSubmit)="sendOrder()">
   <div>
     <label >
       CLIENT:
-      <input type="text" >
-    </label>
-    <label>
-      ORDER:
-      <input type="number" value="001" readonly>
+      <input type="text" formControlName="clientName" required>
     </label>
     <label>
       TABLE:
-      <input type="number" min="1" step="1">
+      <input type="number" formControlName="tableNumber" min="1" step="1" required>
     </label>
   </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>PRODUCT</th>
-        <th>UNITS</th>
-        <th>PRICE</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Natural juice</td>
-        <td>
-          <fa-icon [icon]="minusIcon"></fa-icon>
-          02
-          <fa-icon [icon]="plusIcon"></fa-icon>
-        </td>
-        <td>14</td>
-        <td><fa-icon [icon]="trashIcon"></fa-icon></td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <td>TOTAL</td>
-        <td></td>
-        <td>$14</td>
-      </tr>
-    </tfoot>
-  </table>
-  <input type="submit" value="SEND">
+  <ng-container *ngIf="order.length !== 0; else noOrderList">
+    <table>
+      <colgroup>
+        <col width="*">
+        <col width="35%">
+        <col width="30%">
+        <col width="5%">
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">ITEM</th>
+          <th scope="col">UNITS</th>
+          <th scope="col">PRICE</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of order">
+          <td>{{item.productName}}</td>
+          <td>
+            <fa-icon [icon]="minusIcon" (click) = "removeUnit(item.productId)"></fa-icon>
+            {{item.units}}
+            <fa-icon [icon]="plusIcon" (click) = "addUnit(item.productId)"></fa-icon>
+          </td>
+          <td>{{item.subTotalPrice | currency }}</td>
+          <td><fa-icon [icon]="trashIcon" (click) = "deleteItem(item.productId)"></fa-icon></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>TOTAL</td>
+          <td></td>
+          <td>{{getTotal() | currency }}</td>
+        </tr>
+      </tfoot>
+    </table>
+    <button type="submit">SEND</button>
+  </ng-container>
 </form>
+
+<ng-template #noOrderList>
+  <p>No order yet!</p>
+</ng-template>

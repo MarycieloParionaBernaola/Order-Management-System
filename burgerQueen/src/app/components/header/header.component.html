@@ -1,10 +1,11 @@
 <header>
   <h1>Sha&Mar</h1>
-  <form>
-    <input type="search" id="search-bar" class="search-bar" placeholder="Search" autocomplete="off">
-  </form>
-  <div>
+<form>
+  <fa-icon [icon]="searchIcon"></fa-icon>
+  <input type="search" placeholder="Search" autocomplete="off" (keyup)="onKey($event)">
+</form>
+<div>
     <h3>Waiter</h3>
     <img src="../../../assets/waiter-avatar.png" alt="waiter-photo">
-  </div>
+</div>
 </header>

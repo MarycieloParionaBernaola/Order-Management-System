@@ -1,0 +1,11 @@
+<ul class="scroll-container" (mouseleave)="showScroll = false" (mouseenter)="showScroll = true"
+(touchmove)="showScroll = true" [ngClass]="{'show-scroll' : showScroll}">
+  <li *ngFor="let p of productsByCategory" [class.selected] = "p.id === productId" (click)="sendSelectedProduct(p)">
+    <div>
+      <img src={{p.img}} />
+      <h4>{{p.name}}</h4>
+      <p>${{p.price}}</p>
+    </div>
+  </li>
+</ul>
+

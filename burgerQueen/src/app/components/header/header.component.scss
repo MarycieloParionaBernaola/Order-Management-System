@@ -1,13 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
 @import '../../../mixin.scss';
 
-header {
+:host {
   width: 100%;
+}
+
+header {
+  width: 80%;
   height: fit-content;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 20px 60px 10px 60px;
+  margin: auto;
 
   h1 {
     font: normal 400 55px/88px 'Shadows Into Light', cursive;
@@ -16,14 +20,21 @@ header {
   }
 
   form {
-    text-align: center;
+    @include containers(0.1rem 0.5rem, 0.5rem);
+    @include inputs(250px);
+    color: #CACACA;
+    background-color: transparent;
+    margin: auto;
 
-    input {
-      @include containers(0.5rem, 0.5rem);
-      @include inputs(250px);
-      color: #CACACA;
-      background-color: transparent;
-    }
+      input {
+        width: 200px;
+        height: 30px;
+        color: #CACACA;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        padding: 0 0.4rem;
+      }
   }
 
   div {
@@ -44,4 +55,3 @@ header {
     }
   }
 }
-

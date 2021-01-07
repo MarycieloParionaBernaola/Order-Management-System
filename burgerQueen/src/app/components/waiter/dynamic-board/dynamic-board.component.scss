@@ -3,5 +3,7 @@
 :host {
   @include containers(10px, 13px);
   grid-area: dynamic-board;
+  width: 100%;
+  height: 100%;
 }
 
