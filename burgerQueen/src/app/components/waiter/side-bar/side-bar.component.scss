@@ -1,8 +1,9 @@
 @import '../../../../mixin.scss';
 
 :host {
-  @include containers(0.5rem 0px, 13px);
+  @include containers(1rem 0px, 13px);
   grid-area: side-bar;
+  width: 100%;
   text-align: center;
 }
 
@@ -12,15 +13,12 @@
   border-left: 4px solid #22FF90;
 }
 
-h2 {
-  padding: 0.6rem;
-}
-
 ul {
-  font-size: 2rem;
+  font-size: 1.4rem;
+  width: 100%;
 
   li {
-    padding: 0.6rem 0.3rem;
+    padding: 1rem 0.3rem;
     cursor: pointer;
     p{
       font-size: 1rem;

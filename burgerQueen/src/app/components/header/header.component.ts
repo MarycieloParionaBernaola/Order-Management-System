@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchProductsService } from '../../services/search-products.service';
-import { faSearch} from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faBell } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +10,7 @@ import { faSearch} from '@fortawesome/free-solid-svg-icons';
 export class HeaderComponent implements OnInit {
 
   searchIcon = faSearch;
+  notificationIcon = faBell;
 
   public inputValue!: any[];
 

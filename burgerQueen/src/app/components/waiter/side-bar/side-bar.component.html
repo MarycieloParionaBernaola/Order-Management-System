@@ -1,8 +1,6 @@
-<!-- <h2>Filter Products</h2> -->
 <ul>
   <li *ngFor="let icon of icons; let i = index" [class.selected]="icons[i].name === iconName" (click)="onSelect(icons[i])">
     <fa-icon [icon]=icons[i].img></fa-icon>
-    <!-- <p>{{icons[i].name}}</p> -->
   </li>
 </ul>
 

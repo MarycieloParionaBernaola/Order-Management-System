@@ -13,19 +13,22 @@ export class OrderService {
   constructor() { }
 
   getItem (product: any) {
+
     let itemArr: OrderItem[] = [];
-    itemArr.push({
-        productId: product[0].id,
-        productCategory: product[0].category,
-        productSubCategory: product[0].subcategory,
-        productName: product[0].name,
-        units: 1,
-        unitPrice: product[0].price,
-        subTotalPrice: product[0].price,
-        extraProducts: []
-      })
+
+    const itemObj = {
+      productId: product[0].id,
+      productCategory: product[0].category,
+      productSubCategory: product[0].subcategory,
+      productName: product[0].name,
+      units: 1,
+      unitPrice: product[0].price,
+      subTotalPrice: product[0].price,
+    }
+
+    product[0].subcategory !== 'burgers' ? itemArr.push(itemObj) : itemArr.push({...itemObj, extraProduct: '', kindOfMeat: '' })
     this.orderItemsSource.next(itemArr);
-    console.log(this.orderItemsSource.getValue());
+    // console.log(this.orderItemsSource.getValue());
   }
 
 }

@@ -1,50 +1,30 @@
-<h2>ORDER</h2>
+<h2>ORDER</h2><br>
 
 <form [formGroup]="orderForm" (ngSubmit)="sendOrder()">
-  <div>
-    <label >
-      CLIENT:
-      <input type="text" formControlName="clientName" required>
-    </label>
-    <label>
-      TABLE:
-      <input type="number" formControlName="tableNumber" min="1" step="1" required>
-    </label>
+  <div class="input-container">
+    <label>CLIENT: <input type="text" formControlName="clientName" required></label>
+    <label>TABLE: <input type="number" formControlName="tableNumber" min="1" step="1" required></label>
   </div>
 
   <ng-container *ngIf="order.length !== 0; else noOrderList">
     <table>
-      <colgroup>
-        <col width="*">
-        <col width="35%">
-        <col width="30%">
-        <col width="5%">
-      </colgroup>
       <thead>
         <tr>
-          <th scope="col">ITEM</th>
-          <th scope="col">UNITS</th>
-          <th scope="col">PRICE</th>
-          <th scope="col"></th>
+          <th>N°</th>
+          <th>ITEM</th>
+          <th>UNITS</th>
+          <th>PRICE</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of order">
-          <td>{{item.productName}}</td>
-          <td>
-            <fa-icon [icon]="minusIcon" (click) = "removeUnit(item.productId)"></fa-icon>
-            {{item.units}}
-            <fa-icon [icon]="plusIcon" (click) = "addUnit(item.productId)"></fa-icon>
-          </td>
-          <td>{{item.subTotalPrice | currency }}</td>
-          <td><fa-icon [icon]="trashIcon" (click) = "deleteItem(item.productId)"></fa-icon></td>
+        <tr app-order-item *ngFor="let item of order" [selectedItem]="item" (deleteItemEmitter)="deleteItem($event)">
         </tr>
       </tbody>
       <tfoot>
         <tr>
-          <td>TOTAL</td>
-          <td></td>
-          <td>{{getTotal() | currency }}</td>
+          <td colspan="3">TOTAL</td>
+          <td colspan="2">{{getTotal() | currency }}</td>
         </tr>
       </tfoot>
     </table>

@@ -1,74 +1,115 @@
 @import '../../../../mixin.scss';
 
 :host {
-  @include containers(10px, 13px);
+  @include containers(1rem 0.6rem 0.6rem 0.6rem, 13px);
   grid-area: order;
   width: 100%;
   height: 100%;
 }
 
-h2 {
-  @include title-components;
-}
+h2 { @include title-components; }
 
 form {
+  width: 100%;
   text-align: center;
-  div {
+  .input-container {
+    width: 90%;
     display: grid;
     grid-template-areas:
     'client client table-number';
-    text-align: center;
-    margin: 0.7rem;
-
-    label:nth-child(1) {
-      grid-area: client;
+    margin: auto;
+    text-align: start;
+    font-size: 0.9rem;
+    label {
+      &:nth-child(1) { grid-area: client; }
+      &:nth-child(2) { grid-area: table-number; }
     }
-
-    label:nth-child(2) {
-      grid-area: table-number;
-    }
-
     input {
       @include containers(0.5rem, 0.5rem);
       @include inputs(4rem);
-    }
-
-    input[type="text"] {
-      width: 13rem;
-    }
-  }
-
-  table {
-    margin: 1rem auto;
-    text-align: center;
-    font-size: 1rem;
-
-    fa-icon {
-      font-size: 1.5rem;
-      margin: 0.5rem;
+      font-size: 0.9rem;
+      &[type=text] { width: 13rem; }
+      &[type=number] { -moz-appearance: textfield; }
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
     }
 
   }
-
   button {
-    color: #22FF90;
-    padding: 10px;
-    border: 2px solid #22FF90;
-    border-radius: 13px;
+    @include containers(0.5rem, 0.5rem);
+  }
+
+
+}
+
+
+table {
+  width: 90%;
+  display: block;
+  margin: 1.5rem auto;
+  text-align: center;
+  font-size: 0.9rem;
+
+  thead, tbody, tfoot {
+    display: block;
+  }
+
+  thead tr th {
+    height: 40px;
+    line-height: 2rem;
+  }
+
+  th {
+    &:nth-child(1)  { width: 2rem; }
+    &:nth-child(2)  { width: 13rem; }
+    &:nth-child(3)  { width: 14rem; }
+    &:nth-child(4)  { width: 5rem; }
+    &:nth-child(5)  { width: 2rem; }
+  }
+
+
+
+  tbody {
+    height: 310px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+
+    &::-webkit-scrollbar {
+      width: 0.4rem;
+      height: 2rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: grey;
+      border-radius: 20px;
+    }
   }
 
 }
 
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
+p {
+  margin: 2rem;
 }
 
 
+@media only screen and (max-width: 768px) {
+  table { width: 95%; }
+}
+
+@media only screen and (min-width: 1024px) {
+  table {
+    thead th {
+      &:nth-child(1)  { width: 2rem; }
+      &:nth-child(2)  { width: 13rem; }
+      &:nth-child(3)  { width: 10rem; }
+      &:nth-child(4)  { width: 5rem; }
+      &:nth-child(5)  { width: 2rem; }
+    }
+  }
+
+}

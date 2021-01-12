@@ -45,9 +45,7 @@ export class ProductsComponent implements OnInit {
         if (result[i].subcategory) {
           this.convertedProducts = this.products.filter((e: any) => e.subcategory === result[i].subcategory)
         }
-      }
-       console.log(this.convertedProducts);
-    });
+      }});
 
     // Getting input of search bar and searching in product list
     this.searchProductsService.searchProducts.subscribe(result => {
@@ -59,9 +57,7 @@ export class ProductsComponent implements OnInit {
         if (result[i] === '') {
           this.convertedProducts = [];
         }
-      }
-      console.log(this.convertedProducts);
-    });
+      }});
 
     // Subscribing to order service
     this.orderService.orderItems.subscribe(result => { this.selectedProduct = result });

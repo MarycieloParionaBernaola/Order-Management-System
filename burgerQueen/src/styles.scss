@@ -38,10 +38,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Spartan&display=swap');
 
 
-html,
-body {
-  height: 100%;
-}
+
+html {
+
+  &::-webkit-scrollbar {
+    width: 0.4rem;
+    height: 0.4rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: grey;
+    border-radius: 20px;
+}}
 
 body {
   margin: 0;

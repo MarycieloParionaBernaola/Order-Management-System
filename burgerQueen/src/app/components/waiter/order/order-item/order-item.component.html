@@ -1,0 +1,20 @@
+<td>{{selectedItem.id}}
+<td>{{selectedItem.productName}}
+  <ng-container *ngIf="selectedItem.productSubCategory === 'burgers'">
+  <select [(ngModel)]="selectedItem.kindOfMeat" required>
+    <option [disabled]="meat.kind === 'meat'" *ngFor="let meat of meats">{{meat?.kind}}</option>
+  </select>
+  <form *ngFor="let extra of extras; let i = index">
+    <label><input type="checkbox" [disabled]="extras[i].value" (change)="checkExtra($any($event.target).checked, extra.name, selectedItem.id)"> {{extra.name}}</label>
+  </form>
+  </ng-container>
+</td>
+<td>
+  <fa-icon [icon]="minusIcon" (click) = "subtractUnit(selectedItem)"></fa-icon>
+    {{selectedItem.units}}
+  <fa-icon [icon]="plusIcon" (click) = "addUnit(selectedItem)"></fa-icon>
+</td>
+<td>{{selectedItem.subTotalPrice | currency }}</td>
+<td><fa-icon [icon]="trashIcon" (click) = "deleteItem(selectedItem.id)"></fa-icon></td>
+
+

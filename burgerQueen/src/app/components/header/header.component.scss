@@ -6,12 +6,13 @@
 }
 
 header {
-  width: 80%;
+  width: 90%;
   height: fit-content;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: auto;
+  padding: 1rem;
 
   h1 {
     font: normal 400 55px/88px 'Shadows Into Light', cursive;
@@ -21,14 +22,15 @@ header {
 
   form {
     @include containers(0.1rem 0.5rem, 0.5rem);
-    @include inputs(250px);
+    @include inputs(240px);
     color: #CACACA;
     background-color: transparent;
     margin: auto;
+    font-size: 1rem;
 
       input {
         width: 200px;
-        height: 30px;
+        height: 1.9rem;
         color: #CACACA;
         background-color: transparent;
         border: none;
@@ -52,6 +54,10 @@ header {
       width: 50px;
       height: 50px;
       margin-left: 10px;
+    }
+
+    fa-icon {
+      margin-left: 0.6rem;
     }
   }
 }
