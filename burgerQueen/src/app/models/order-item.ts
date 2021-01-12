@@ -1,6 +1,7 @@
 import { Product } from "./product";
 
 export class OrderItem {
+  id?: number;
   productId?: string;
   productName?: string;
   productCategory?: string;
@@ -8,18 +9,19 @@ export class OrderItem {
   units?: number;
   unitPrice?: number;
   subTotalPrice?: number;
-  extras?: boolean;
-  extraProducts?: any[];
+  extraProduct?: String;
+  kindOfMeat?: String;
 
-  constructor(product: Product, units = 1) {
+  constructor(id: number, product: Product, units = 1) {
+    this.id = id;
     this.productId = product.id;
     this.productName = product.name;
     this.productCategory = product.category;
     this.productSubCategory = product.subcategory;
     this.units = units;
     this.unitPrice = product.price;
-    this.subTotalPrice = product.price*units;
-    this.extras = product.extras;
-    this.extraProducts = [];
+    this.subTotalPrice = product.price * units;
+    this.extraProduct = '';
+    this.kindOfMeat = '';
   }
 }

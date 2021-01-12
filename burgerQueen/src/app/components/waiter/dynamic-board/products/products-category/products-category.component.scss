@@ -10,6 +10,8 @@ width: auto;
 height: auto;
 overflow: hidden;
 white-space: nowrap;
+margin-bottom: 1rem;
+padding: 0.5rem 0rem;
 
 &.hide-scrollbar {
   overflow: auto;
@@ -34,8 +36,8 @@ white-space: nowrap;
 
 li {
   @include containers(10px, 13px);
-  width: 150px;
-  height: 220px;
+  width: 130px;
+  height: 200px;
   cursor: pointer;
   margin: 5px;
   white-space: initial;
@@ -52,6 +54,7 @@ li {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 5fr 2fr 1fr;
+    font-size: 0.9rem;
 
     img {
       width: 100%;

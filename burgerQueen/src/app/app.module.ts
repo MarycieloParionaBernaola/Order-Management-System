@@ -29,6 +29,7 @@ import { ProductsComponent } from './components/waiter/dynamic-board/products/pr
 import { OrderListComponent } from './components/waiter/order-list/order-list.component';
 import { OrderComponent } from './components/waiter/order/order.component';
 import { ProductsCategoryComponent } from './components/waiter/dynamic-board/products/products-category/products-category.component';
+import { OrderItemComponent } from './components/waiter/order/order-item/order-item.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { ProductsCategoryComponent } from './components/waiter/dynamic-board/pro
     OrderListComponent,
     OrderComponent,
     ProductsCategoryComponent,
+    OrderItemComponent,
   ],
   imports: [
     BrowserModule,

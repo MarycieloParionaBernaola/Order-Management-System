@@ -7,7 +7,7 @@
 }
 
 @mixin title-components {
-  font-size: 20px;
+  font-size: 1rem;
   line-height: 22px;
   letter-spacing: 0.82em;
   text-align: center;
@@ -15,6 +15,6 @@
 
 @mixin inputs ($width) {
   width: $width;
-  height: 35px;
+  height: 2rem;
   font: normal normal 1.2rem/15px Spartan;
 }

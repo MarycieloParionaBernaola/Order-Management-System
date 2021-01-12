@@ -6,8 +6,12 @@
   overflow-y: scroll;
 }
 
-h2 {
+h2{
   @include title-components;
+}
+
+h3 {
+  font-size: 0.85rem;
 }
 
 
