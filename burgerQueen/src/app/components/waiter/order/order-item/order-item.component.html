@@ -1,11 +1,11 @@
-<td>{{selectedItem.id}}
+<td>{{selectedItem.id}}</td>
 <td>{{selectedItem.productName}}
   <ng-container *ngIf="selectedItem.productSubCategory === 'burgers'">
   <select [(ngModel)]="selectedItem.kindOfMeat" required>
     <option [disabled]="meat.kind === 'meat'" *ngFor="let meat of meats">{{meat?.kind}}</option>
   </select>
   <form *ngFor="let extra of extras; let i = index">
-    <label><input type="checkbox" [disabled]="extras[i].value" (change)="checkExtra($any($event.target).checked, extra.name, selectedItem.id)"> {{extra.name}}</label>
+    <label><input type="checkbox" [disabled]="extras[i].isDisabled" (change)="checkExtra($any($event.target).checked, extra.name, selectedItem)"> {{extra.name}}</label>
   </form>
   </ng-container>
 </td>
