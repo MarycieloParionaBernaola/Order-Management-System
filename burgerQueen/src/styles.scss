@@ -40,6 +40,7 @@
 
 
 html {
+  height: 100vh;
 
   &::-webkit-scrollbar {
     width: 0.4rem;
@@ -53,8 +54,8 @@ html {
 
 body {
   margin: 0;
-  background-color: #07090c;
-  color: #CACACA;
+  background-color: #383134; // 222
+  color: white;
   font: normal 400 1rem/1.2rem Spartan, Roboto, "Helvetica Neue", sans-serif;
 }
 

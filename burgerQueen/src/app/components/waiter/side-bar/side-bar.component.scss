@@ -1,16 +1,17 @@
 @import '../../../../mixin.scss';
 
 :host {
-  @include containers(1rem 0px, 13px);
+  @include containers(1rem 0px, 0px);
   grid-area: side-bar;
   width: 100%;
   text-align: center;
+  background-color: #241e20;
 }
 
 .selected {
-  color: #22FF90;
+  color: #ffdd1c;
   border: 1.5px solid rgba(77, 77, 77, 0.49);
-  border-left: 4px solid #22FF90;
+  border-left: 4px solid #ffdd1c;
 }
 
 ul {
@@ -27,7 +28,7 @@ ul {
 
   li:hover {
     border: 1.5px solid rgba(77, 77, 77, 0.49);
-    border-left: 4px solid #22FF90;
+    border-left: 4px solid #ffdd1c;
   }
 }
 

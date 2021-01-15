@@ -20,7 +20,7 @@ export class OrderItem {
     this.productSubCategory = product.subcategory;
     this.units = units;
     this.unitPrice = product.price;
-    this.subTotalPrice = product.price * units;
+    this.subTotalPrice = product.price;
     this.extraProduct = '';
     this.kindOfMeat = '';
   }

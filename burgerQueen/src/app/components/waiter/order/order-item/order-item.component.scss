@@ -1,8 +1,8 @@
 
 td {
   vertical-align: top;
-  line-height: 1.5rem;
-  &:nth-child(1)  { width: 2rem; }
+  line-height: 1.8rem;
+  &:nth-child(1)  { width: 2rem; font-weight: bold;}
   &:nth-child(2)  { width: 14rem; }
   &:nth-child(3)  { width: 14rem; }
   &:nth-child(4)  { width: 4rem; }
@@ -17,7 +17,7 @@ fa-icon {
 @media only screen and (min-width: 1024px) {
   td {
     &:nth-child(1)  { width: 2rem; }
-    &:nth-child(2)  { width: 15rem; }
+    &:nth-child(2)  { width: 14rem; }
     &:nth-child(3)  { width: 8rem; }
     &:nth-child(4)  { width: 6rem; }
     &:nth-child(5)  { width: 3rem; }

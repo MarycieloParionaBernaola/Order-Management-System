@@ -2,7 +2,8 @@
   <h1>Sha&Mar</h1>
 <form>
   <fa-icon [icon]="searchIcon"></fa-icon>
-  <input type="search" placeholder="Search" autocomplete="off" (keyup)="onKey($event)">
+  <input type="search" placeholder="Search" #search [(ngModel)]="searchInput" autocomplete="off" (keyup)="onKey($event)" [ngModelOptions]="{standalone: true}">
+  <fa-icon [icon]="cancelIcon" *ngIf="search.value !== ''" (click)="clearInput()"></fa-icon>
 </form>
 <div>
     <h2>Waiter</h2>

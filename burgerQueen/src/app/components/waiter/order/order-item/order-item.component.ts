@@ -34,16 +34,19 @@ export class OrderItemComponent implements OnInit {
   ngOnInit(): void {  }
 
   subTotalPrice(item: any) {
-    if (item.extraProduct !== '') {
+    console.log(item)
+    if (item.extraProduct !== '' && item.productSubCategory === 'burgers') {
       item.subTotalPrice = item.unitPrice * item.units + item.units;
     } else {
       item.subTotalPrice = item.unitPrice * item.units;
     }
+    console.log(item.subTotalPrice)
   }
 
   addUnit(item: any) {
     item.units += 1;
     this.subTotalPrice(item);
+    console.log(this.selectedItem)
   }
 
   subtractUnit(item: any) {

@@ -1,5 +1,5 @@
 @mixin containers ($padding, $border-radius) {
-  border: 1.5px solid #4D4D4D;
+  // border: 1.5px solid white;
   padding: $padding;
   border-radius: $border-radius;
   -moz-border-radius: $border-radius;
@@ -13,8 +13,10 @@
   text-align: center;
 }
 
-@mixin inputs ($width) {
+@mixin inputs ($width, $border) {
   width: $width;
   height: 2rem;
   font: normal normal 1.2rem/15px Spartan;
+  border: $border;
+  background-color: whitesmoke;
 }
