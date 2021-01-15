@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/burgerQueen",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
