@@ -2,11 +2,16 @@
 
 <form [formGroup]="orderForm" (ngSubmit)="sendOrder()">
   <div class="input-container">
-    <label>CLIENT: <input type="text" formControlName="clientName" required></label>
-    <label>TABLE: <input type="number" formControlName="tableNumber" min="1" step="1" required></label>
+    <label>CLIENT: <input type="text" formControlName="clientName" required>
+    <p *ngIf="clientName.hasError('required') && submitted && order.length!==0">Enter the client name</p></label>
+    <label>TABLE: <input type="number" formControlName="tableNumber" min="1" step="1" required>
+    <p *ngIf="tableNumber.hasError('required') && submitted && order.length !==0">Enter the table number</p></label>
   </div>
 
+
+
   <ng-container *ngIf="order.length !== 0; else noOrderList">
+    <div class="table-container">
     <table>
       <thead>
         <tr>
@@ -23,12 +28,13 @@
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="3">TOTAL</td>
-          <td colspan="2">{{getTotal() | currency }}</td>
+          <td>TOTAL</td>
+          <td colspan="3">{{getTotal() | currency }}</td>
         </tr>
       </tfoot>
     </table>
-    <button type="submit">SEND</button>
+  </div>
+    <button [ngClass]="isSelected ? 'isClicked': 'noClicked'" type="submit">SEND</button>
   </ng-container>
 </form>
 

@@ -25,8 +25,8 @@ export class OrderItemComponent implements OnInit {
   ];
 
   public extras: any = [
-    { name: 'cheese', value: false},
-    { name: 'fried egg', value: false}
+    { name: 'cheese', isDisabled: false},
+    { name: 'fried egg', isDisabled: false}
   ];
 
   constructor() { }
@@ -34,40 +34,42 @@ export class OrderItemComponent implements OnInit {
   ngOnInit(): void {  }
 
   subTotalPrice(item: any) {
-    if (item.extraProduct !== '') {
+    console.log(item)
+    if (item.extraProduct !== '' && item.productSubCategory === 'burgers') {
       item.subTotalPrice = item.unitPrice * item.units + item.units;
     } else {
-      item.subTotalPrice = item.unitPrice * item.units + item.units;
+      item.subTotalPrice = item.unitPrice * item.units;
     }
+    console.log(item.subTotalPrice)
   }
 
   addUnit(item: any) {
     item.units += 1;
     this.subTotalPrice(item);
+    console.log(this.selectedItem)
   }
 
   subtractUnit(item: any) {
-    item.units -= 1;
-    this.subTotalPrice(item);
-  };
+    if (item.units === 1) {
+      this.deleteItem(item.id);
+      this.subTotalPrice(item);
+    } else {
+      item.units -= 1;
+      this.subTotalPrice(item);
+    }
+  }
 
   deleteItem (itemId: number) { this.deleteItemEmitter.emit(itemId) };
 
-  checkExtra(isChecked: any, name: string, item: any) {
-    this.extras.forEach((e: any) => { if(e.name !== name) e.value = !e.value });
+  checkExtra(isChecked: boolean, name: string, item: any) {
+    this.extras.forEach((e: any) => { if (e.name !== name) e.isDisabled = !e.isDisabled});
+    if (isChecked) {
+      this.selectedItem.extraProduct = name;
+      this.subTotalPrice(item);
+    } else {
+      this.selectedItem.extraProduct = '';
+      this.subTotalPrice(item);
+    }
   }
 
 }
-
-/*
- // CHECK EXTRA
- checkExtra(obj: any){
-  for (let i in this.order) {
-    if (this.order[i].id === obj.itemId && obj.isChecked) {
-      this.order[i].extraProduct = obj.name;
-      this.order[i].subTotalPrice = this.order[i].unitPrice * this.order[i].units + this.order[i].units;
-    } else if (this.order[i].id === obj.itemId && !obj.isChecked) {
-      this.order[i].extraProduct = '';
-      this.order[i].subTotalPrice = this.order[i].unitPrice * this.order[i].units;
-}}}
- */

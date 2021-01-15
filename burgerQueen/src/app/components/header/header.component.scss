@@ -3,39 +3,44 @@
 
 :host {
   width: 100%;
+  color: #383134;
 }
 
 header {
-  width: 90%;
+  width: 100%;
   height: fit-content;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: auto;
-  padding: 1rem;
+  padding: 0rem 2rem;
+  background-color: #ffdd1c; // #ffa700
 
   h1 {
     font: normal 400 55px/88px 'Shadows Into Light', cursive;
-    color: #22FF90;
     letter-spacing: 0em;
   }
 
   form {
     @include containers(0.1rem 0.5rem, 0.5rem);
-    @include inputs(240px);
     color: #CACACA;
-    background-color: transparent;
+    background-color: whitesmoke;
     margin: auto;
     font-size: 1rem;
+    color: gray;
 
       input {
-        width: 200px;
+        width: 12rem;
         height: 1.9rem;
         color: #CACACA;
         background-color: transparent;
         border: none;
         outline: none;
         padding: 0 0.4rem;
+        color: #222;
+        &::-webkit-search-cancel-button {
+          -webkit-appearance: none;
+        }
       }
   }
 

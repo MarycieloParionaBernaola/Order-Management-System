@@ -1,8 +1,7 @@
 @import '../../../../../../mixin.scss';
 
 .selected {
-  border: 2px solid #22FF90 !important;
-  color: #22FF90;
+  border: 3px solid #ffa700 !important;
 }
 
 .scroll-container {
@@ -42,9 +41,10 @@ li {
   margin: 5px;
   white-space: initial;
   display: inline-block;
+  background-color: white;
 
   &:hover {
-    border: 2px solid #22FF90;
+    border: 2px solid #ffa700;
     cursor: pointer;
   }
 
@@ -55,6 +55,7 @@ li {
     grid-template-columns: 100%;
     grid-template-rows: 5fr 2fr 1fr;
     font-size: 0.9rem;
+    color: #444444;
 
     img {
       width: 100%;
@@ -63,11 +64,13 @@ li {
 
     h4{
       margin-top:5px;
+      text-align: center;
+      font-weight: bold;
     }
 
     p {
       text-align: right;
-      font-weight: bold;
+      font-weight: 900;
     }
 
   }

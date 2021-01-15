@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProductService } from 'src/app/services/product.service';
 import { OrderService } from 'src/app/services/order.service';
 
@@ -11,15 +11,19 @@ import { OrderService } from 'src/app/services/order.service';
 export class OrderComponent implements OnInit {
 
   public order: any = [];
+  orderForm: FormGroup;
+  formData: any;
+  submitted: any;
+  isSelected: any;
 
-  orderForm = new FormGroup({
-    clientName: new FormControl('', Validators.required),
-    tableNumber: new FormControl('', Validators.required),
-  });
 
-  constructor(private productService: ProductService, private orderService: OrderService) {  }
+  constructor(private fb: FormBuilder, private productService: ProductService, private orderService: OrderService) {  }
 
   ngOnInit(): void {
+
+    this.submitted=false;
+    this.isSelected=false;
+    this.createForm();
 
     this.orderService.orderItems.subscribe(result => {
       for (let i = 0; i < result.length; i ++) {
@@ -49,14 +53,41 @@ export class OrderComponent implements OnInit {
   getTotal () { return this.order.map((a: any) => a.subTotalPrice).reduce(function(a: any, b: any) { return a + b }); }
 
   // SEND ORDER TO FIREBASE
+
+  createForm() {
+    this.orderForm = this.fb.group({
+      'clientName': ['', [Validators.required]],
+      'tableNumber': ['', [Validators.required]],
+    })
+  }
+
+  get clientName() { return this.orderForm.get('clientName'); }
+
+  get tableNumber() { return this.orderForm.get('tableNumber'); }
+
   sendOrder() {
+    this.submitted = true;
+    this.isSelected = true;
+
+
     this.orderForm.value.date = new Date();
     this.orderForm.value.time = new Date();
     this.orderForm.value.items = this.order;
     this.orderForm.value.total = this.getTotal();
     console.log(this.orderForm.value);
-    this.productService.setOrder(this.orderForm.value);
-    this.orderForm.reset();
-    this.order = [];
+    this.formData = this.orderForm.value;
+
+    if (this.orderForm.valid) {
+      console.log(this.formData)
+      this.submitted = false;
+      this.productService.setOrder(this.orderForm.value);
+      this.orderForm.reset();
+      this.order = [];
+      alert('Order sent :)')
+
+    } else {
+      this.isSelected = false;
+      alert('Fill in all the fields!')
+    }
   }
 }
