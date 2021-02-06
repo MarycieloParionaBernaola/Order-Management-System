@@ -1,0 +1,16 @@
+<td>{{selectedOrder.timeReceived | date: 'dd/MM/yyyy'}} </td>
+<td>{{selectedOrder.number}}</td>
+<td>{{selectedOrder.clientName}}</td>
+<td>{{selectedOrder.tableNumber}}</td>
+<td>{{items}}
+  <span *ngIf="selectedOrder.orderDetail !== ''"> <br> ✍ {{selectedOrder.orderDetail}}</span>
+</td>
+<td>{{selectedOrder.total | currency }}</td>
+<td>Chef</td>
+<td>Waiter</td>
+<td>{{selectedOrder.status}}</td>
+<td>{{selectedOrder.timeReceived | date:'h:mm a'}} </td>
+<td>{{selectedOrder.preparationTime | date:'mm:ss'}} </td>
+<td>{{selectedOrder.timeDone | date:'h:mm a'}} </td>
+<td>{{selectedOrder.timeDelivered | date:'h:mm a'}} </td>
+<td>{{selectedOrder.totalTime | date:'mm:ss'}} </td>

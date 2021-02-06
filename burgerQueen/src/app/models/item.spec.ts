@@ -1,6 +1,6 @@
-import { OrderItem } from './order-item';
+import { Item } from './item';
 
-describe('OrderItem', () => {
+describe('Item', () => {
   it('should create an instance', () => {
     // expect(new OrderItem()).toBeTruthy();
   });

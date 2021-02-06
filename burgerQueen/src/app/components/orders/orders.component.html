@@ -1,0 +1,26 @@
+<div class="container-table">
+ <table>
+  <thead>
+    <tr>
+      <th>DATE</th>
+      <th>ORDER</th>
+      <th>CLIENT</th>
+      <th>TABLE</th>
+      <th>DESCRIPTION</th>
+      <th>BILL</th>
+      <th>CHEF</th>
+      <th>WAITER</th>
+      <th>STATUS</th>
+      <th>TIME RECEIVED</th>
+      <th>PREPARATION TIME (MIN)</th>
+      <th>TIME DONE</th>
+      <th>TIME DELIVERED</th>
+      <th>TOTAL TIME (MIN)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr app-order-item *ngFor="let order of orders" [selectedOrder]="order"></tr>
+  </tbody>
+</table>
+</div>
+

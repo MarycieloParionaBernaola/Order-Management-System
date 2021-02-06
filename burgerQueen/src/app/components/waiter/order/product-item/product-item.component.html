@@ -1,20 +1,20 @@
-<td>{{selectedItem.id}}</td>
-<td>{{selectedItem.productName}}
+<li>{{selectedItem.id}}</li>
+<li>{{selectedItem.productName}}
   <ng-container *ngIf="selectedItem.productSubCategory === 'burgers'">
   <select [(ngModel)]="selectedItem.kindOfMeat" required>
-    <option [disabled]="meat.kind === 'meat'" *ngFor="let meat of meats">{{meat?.kind}}</option>
+    <option [disabled]="meat.kind === ''" *ngFor="let meat of meats">{{meat?.kind}}</option>
   </select>
   <form *ngFor="let extra of extras; let i = index">
     <label><input type="checkbox" [disabled]="extras[i].isDisabled" (change)="checkExtra($any($event.target).checked, extra.name, selectedItem)"> {{extra.name}}</label>
   </form>
   </ng-container>
-</td>
-<td>
+</li>
+<li>
   <fa-icon [icon]="minusIcon" (click) = "subtractUnit(selectedItem)"></fa-icon>
     {{selectedItem.units}}
   <fa-icon [icon]="plusIcon" (click) = "addUnit(selectedItem)"></fa-icon>
-</td>
-<td>{{selectedItem.subTotalPrice | currency }}</td>
-<td><fa-icon [icon]="trashIcon" (click) = "deleteItem(selectedItem.id)"></fa-icon></td>
+</li>
+<li>{{selectedItem.subTotalPrice | number : '1.2-2'}}</li>
+<li><fa-icon [icon]="trashIcon" (click) = "deleteItem(selectedItem.id)"></fa-icon></li>
 
 

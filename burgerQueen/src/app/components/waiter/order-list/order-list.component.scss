@@ -1,7 +1,0 @@
-@import '../../../../mixin.scss';
-
-:host {
-  @include containers(10px, 13px);
-  grid-area: order-list;
-  height: 100px;
-}

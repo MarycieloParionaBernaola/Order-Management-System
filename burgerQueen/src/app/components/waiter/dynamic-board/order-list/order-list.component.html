@@ -1,0 +1,16 @@
+<h2>ORDERS READY TO SERVE</h2><br>
+
+<ng-container *ngIf="orders.length !== 0 then ordersReadyToServe else noOrders" >
+
+</ng-container>
+
+<ng-template #ordersReadyToServe>
+<div>
+  <app-order-chef *ngFor="let order of orders" [selectedOrder]="order">
+  </app-order-chef>
+</div>
+</ng-template>
+
+<ng-template #noOrders>
+  <p>No orders to serve! Good job!</p>
+</ng-template>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ProductService } from 'src/app/services/product.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 import { OrderService } from 'src/app/services/order.service';
 
 @Component({
@@ -10,54 +10,57 @@ import { OrderService } from 'src/app/services/order.service';
 })
 export class OrderComponent implements OnInit {
 
-  public order: any = [];
+  public items: any = [];
+  orderNumber: any;
   orderForm: FormGroup;
   formData: any;
   submitted: any;
   isSelected: any;
 
 
-  constructor(private fb: FormBuilder, private productService: ProductService, private orderService: OrderService) {  }
+  constructor(private fb: FormBuilder, private db: FirestoreService, private orderService: OrderService) {  }
 
   ngOnInit(): void {
 
+    this.getOrderNumber();
     this.submitted=false;
     this.isSelected=false;
     this.createForm();
 
     this.orderService.orderItems.subscribe(result => {
       for (let i = 0; i < result.length; i ++) {
-        const lastIndex = this.order.map((e: any) => e.productId).lastIndexOf(result[i].productId);
+        const lastIndex = this.items.map((e: any) => e.productId).lastIndexOf(result[i].productId);
         let productExists = false;
         if (lastIndex !== -1 && result[i].productSubCategory !== 'burgers') {
-          this.order[lastIndex].units++;
-          this.order[lastIndex].subTotalPrice = this.order[lastIndex].unitPrice * this.order[lastIndex].units;
+          this.items[lastIndex].units++;
+          this.items[lastIndex].subTotalPrice = this.items[lastIndex].unitPrice * this.items[lastIndex].units;
           productExists = true;
           break;
         }
         if (!productExists) {
-          this.order.push(result[i]);
-          this.order.map((value: any, index: any) => value.id = index + 1); // Adding id to item
+          this.items.push(result[i]);
+          this.items.map((value: any, index: any) => value.id = index + 1); // Adding id to item
         }
   }})}
 
 
   // DELETE ITEM
   deleteItem(itemId: any) {
-    for (let i in this.order) {
-      if (this.order[i].id === itemId) {
-        this.order.splice(this.order.indexOf(this.order[i]), 1);
-  }}}
+    for (let i in this.items) {
+      if (this.items[i].id === itemId) this.items.splice(this.items.indexOf(this.items[i]), 1);
+  }}
+
 
   // GET TOTAL
-  getTotal () { return this.order.map((a: any) => a.subTotalPrice).reduce(function(a: any, b: any) { return a + b }); }
+  getTotal () { return this.items.map((a: any) => a.subTotalPrice).reduce(function(a: any, b: any) { return a + b }); }
 
-  // SEND ORDER TO FIREBASE
 
+  // CREATE REACTIVE FORM
   createForm() {
     this.orderForm = this.fb.group({
       'clientName': ['', [Validators.required]],
       'tableNumber': ['', [Validators.required]],
+      'orderDetail': [''],
     })
   }
 
@@ -65,25 +68,38 @@ export class OrderComponent implements OnInit {
 
   get tableNumber() { return this.orderForm.get('tableNumber'); }
 
+  getOrderNumber(){
+    this.db.getOrders().subscribe(result => {
+      const ordersOfTheDay = result.filter((e: any) => {
+        return e.timeReceived.toDate().setHours(0,0,0,0) === new Date().setHours(0,0,0,0);
+      })
+      this.orderNumber = ordersOfTheDay.length + 1;
+      if (this.orderNumber < 10 ) this.orderNumber = '00' + this.orderNumber;
+      else if (this.orderNumber < 100) this.orderNumber = '0' + this.orderNumber;
+    })
+  }
+
+  // SEND ORDER TO FIREBASE
   sendOrder() {
     this.submitted = true;
-    this.isSelected = true;
-
-
-    this.orderForm.value.date = new Date();
-    this.orderForm.value.time = new Date();
-    this.orderForm.value.items = this.order;
+    this.orderForm.value.number = this.orderNumber;
+    this.orderForm.value.items = this.items;
     this.orderForm.value.total = this.getTotal();
-    console.log(this.orderForm.value);
+    this.orderForm.value.status = 'Pending';
+    this.orderForm.value.timeReceived = new Date();
+    this.orderForm.value.preparationTime = '';
+    this.orderForm.value.timeDone = '';
+    this.orderForm.value.timeDelivered = '';
+    this.orderForm.value.totalTime = '';
     this.formData = this.orderForm.value;
 
     if (this.orderForm.valid) {
-      console.log(this.formData)
       this.submitted = false;
-      this.productService.setOrder(this.orderForm.value);
+      this.db.addOrder(this.formData);
+      this.isSelected = true;
       this.orderForm.reset();
-      this.order = [];
-      alert('Order sent :)')
+      this.items = [];
+      alert('Order sent successfully :)')
 
     } else {
       this.isSelected = false;
