@@ -4,13 +4,14 @@
   border: 3px solid #ffa700 !important;
 }
 
-.scroll-container {
-width: auto;
-height: auto;
-overflow: hidden;
-white-space: nowrap;
-margin-bottom: 1rem;
-padding: 0.5rem 0rem;
+ul {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0rem;
 
 &.hide-scrollbar {
   overflow: auto;
@@ -35,12 +36,11 @@ padding: 0.5rem 0rem;
 
 li {
   @include containers(10px, 13px);
-  width: 130px;
+  width: 135px;
   height: 200px;
   cursor: pointer;
   margin: 5px;
-  white-space: initial;
-  display: inline-block;
+  flex: 0 0 auto;
   background-color: white;
 
   &:hover {
@@ -53,7 +53,7 @@ li {
     height: 100%;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 5fr 2fr 1fr;
+    grid-template-rows: 63% 25% 12%;
     font-size: 0.9rem;
     color: #444444;
 

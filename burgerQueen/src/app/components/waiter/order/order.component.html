@@ -1,40 +1,34 @@
-<h2>ORDER</h2><br>
+<h2>ORDER</h2>
 
 <form [formGroup]="orderForm" (ngSubmit)="sendOrder()">
   <div class="input-container">
-    <label>CLIENT: <input type="text" formControlName="clientName" required>
-    <p *ngIf="clientName.hasError('required') && submitted && order.length!==0">Enter the client name</p></label>
+    <label>WAITER: <input type="text" value="WAITER" disabled></label>
+    <label>ORDER: <input type="number" value={{orderNumber}} disabled></label>
+    <label>CLIENT: <input type="text" formControlName="clientName" oninput="this.value = this.value.toUpperCase()" required>
+      <p *ngIf="clientName.hasError('required') && submitted && items.length!==0">Enter the client name</p></label>
     <label>TABLE: <input type="number" formControlName="tableNumber" min="1" step="1" required>
-    <p *ngIf="tableNumber.hasError('required') && submitted && order.length !==0">Enter the table number</p></label>
+      <p *ngIf="tableNumber.hasError('required') && submitted && items.length !==0">Enter the table number</p></label>
   </div>
 
-
-
-  <ng-container *ngIf="order.length !== 0; else noOrderList">
-    <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th>N°</th>
-          <th>ITEM</th>
-          <th>UNITS</th>
-          <th>PRICE</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr app-order-item *ngFor="let item of order" [selectedItem]="item" (deleteItemEmitter)="deleteItem($event)">
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td>TOTAL</td>
-          <td colspan="3">{{getTotal() | currency }}</td>
-        </tr>
-      </tfoot>
-    </table>
-  </div>
-    <button [ngClass]="isSelected ? 'isClicked': 'noClicked'" type="submit">SEND</button>
+  <ng-container *ngIf="items.length !== 0; else noOrderList">
+    <div class="items-container">
+      <ul class="header columns">
+        <li>N°</li>
+        <li>ITEM</li>
+        <li>UNITS</li>
+        <li>PRICE</li>
+        <li></li>
+      </ul>
+      <ul class="body">
+        <li class="columns" app-product-item *ngFor="let item of items" [selectedItem]="item" (deleteItemEmitter)="deleteItem($event)">
+      </ul>
+      <ul class="footer">
+        <li>TOTAL</li>
+        <li>{{getTotal() | currency }}</li>
+      </ul>
+    </div>
+    <textarea formControlName="orderDetail" rows="1.5" cols="30" placeholder="✍ add some details to order..." spellcheck="false"></textarea><br>
+    <button [ngClass]="isSelected && submitted && items.length !==0? 'isClicked': 'noClicked'" type="submit">SEND</button>
   </ng-container>
 </form>
 

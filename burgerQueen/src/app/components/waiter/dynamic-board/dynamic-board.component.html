@@ -1,2 +1,16 @@
-<app-products></app-products>
+<ng-container *ngIf="serviceReceived === true then ordersDone else productList">
+</ng-container>
+
+<ng-template #productList>
+  <app-products></app-products>
+</ng-template>
+
+<ng-template #ordersDone>
+  <app-order-list></app-order-list>
+</ng-template>
+
+
+
+
+
 

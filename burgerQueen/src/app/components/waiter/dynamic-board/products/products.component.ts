@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../../../services/product.service';
+import { FirestoreService } from '../../../../services/firestore.service';
 import { FilterProductsService } from '../../../../services/filter-products.service';
 import { SearchProductsService } from '../../../../services/search-products.service';
 import { OrderService } from '../../../../services/order.service';
@@ -19,14 +19,14 @@ export class ProductsComponent implements OnInit {
   productId: String;
   selectedIcon: any = [];
 
-  constructor(public productService: ProductService, private orderService: OrderService,
+  constructor(private firestoreService: FirestoreService, private orderService: OrderService,
     private filterProductsService: FilterProductsService, private searchProductsService: SearchProductsService) {
    }
 
   ngOnInit(): void {
 
     // Getting all products and filtering by drinks and foods
-    this.productService.getProducts().subscribe(products => {
+    this.firestoreService.getProducts().subscribe(products => {
       for (let i = 0; i < products.length; i++) {
         products[i].category === 'drinks' ?  this.drinks.push(products[i]) : this.foods.push(products[i])
       }

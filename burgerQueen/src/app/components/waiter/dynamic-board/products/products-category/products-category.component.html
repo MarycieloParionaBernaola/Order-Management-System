@@ -1,4 +1,4 @@
-<ul class="scroll-container" (mouseleave)="showScroll = false" (mouseenter)="showScroll = true"
+<ul (mouseleave)="showScroll = false" (mouseenter)="showScroll = true"
 (touchmove)="showScroll = true" [ngClass]="{'show-scroll' : showScroll}">
   <li *ngFor="let p of productsByCategory" [class.selected] = "p.id === productId" (click)="sendSelectedProduct(p)">
     <div>

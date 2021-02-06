@@ -31,14 +31,17 @@ form {
     width: 90%;
     display: grid;
     grid-template-areas:
+    'waiter waiter order-number'
     'client client table-number';
     gap: 0.5rem;
-    margin: auto;
-    text-align: start;
+    margin: 1.5rem auto;
+    // text-align: start;
     font-size: 0.9rem;
     label {
-      &:nth-child(1) { grid-area: client; }
-      &:nth-child(2) { grid-area: table-number; }
+      &:nth-child(1) { grid-area: waiter; }
+      &:nth-child(2) { grid-area: order-number; }
+      &:nth-child(3) { grid-area: client; }
+      &:nth-child(4) { grid-area: table-number; }
       p {
         margin: 0.3rem 0rem 0rem 0rem;
         color: red;
@@ -47,7 +50,7 @@ form {
     input {
       @include containers(0.5rem, 0.5rem);
       @include inputs(4rem, none);
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       &[type=text] { width: 12rem; }
       &[type=number] { -moz-appearance: textfield; }
       &::-webkit-outer-spin-button,
@@ -58,11 +61,19 @@ form {
     }
 
   }
+  textarea {
+    resize: none;
+    margin-top: 1rem;
+    background-color: whitesmoke;
+    @include containers(0.6rem, 0.5rem);
+  }
+
   button {
     @include containers(0.7rem, 0.5rem);
     width: 30%;
     background-color: #241e20;
     border: 0.5px solid gray;
+    margin: 1rem auto;
     &:hover {
       border: 0.5px solid #ffdd1c;
     }
@@ -72,67 +83,48 @@ form {
 
 }
 
-.table-container {
+.items-container {
   border-radius: 1.5rem;
-  padding: 0.1rem 0.2rem;
+  font-size: 0.9rem;
+  padding: 1rem;
   background-color: #241e20c2;
-  margin: 2rem auto;
+  margin: auto;
+  width: 90%;
+  display: grid;
+  gap: 0.7rem;
+  grid-template-areas: 'header'
+  'body'
+  'footer';
+  justify-content: center;
 
-  table {
-    width: 90%;
-    display: block;
-    margin: 1.5rem auto;
-    text-align: center;
-    font-size: 0.9rem;
-    border-collapse: collapse;
+  .columns {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 2rem 2.7fr 1.7fr 1.2fr 2rem ;
+  }
 
-
-
-    thead, tbody, tfoot {
-      display: block;
+  .header { grid-area: header; }
+  .body {
+    grid-area: body;
+    height: 180px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+      width: 0.2rem;
+      height: 1rem;
     }
 
-    thead tr th {
-      height: 40px;
-      line-height: 2rem;
-
-      &:nth-child(1)  { width: 2rem; }
-      &:nth-child(2)  { width: 17rem; }
-      &:nth-child(3)  { width: 11rem; }
-      &:nth-child(4)  { width: 6rem; }
-      &:nth-child(5)  { width: 4rem; }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 1rem;
+      background-color: gray;
     }
-
-
-    tbody {
-      height: 200px;
-      overflow-y: auto;
-      overflow-x: hidden;
-
-
-      &::-webkit-scrollbar {
-        width: 0.2rem;
-        height: 1rem;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        border-radius: 1rem;
-        background-color: gray;
-      }
-    }
-
-    tfoot {
-      height: 40px;
-      line-height: 3rem;
-      font-weight: bold;
-
-      td {
-        width: 15rem;
-      }
-    }
+  }
+  .footer {
+    grid-area: footer;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); }
 
   }
-}
 
 
 
@@ -146,24 +138,10 @@ p {
   form {
     .input-container {
       input {
-        &[type=text] { width: 10rem; }
-        &[type=number] { width: 2.5rem; }
+        &[type=text] { width: 7rem; }
+        &[type=number] { width: 3rem; }
       }
     }
   }
-}
-
-
-@media only screen and (min-width: 1024px) {
-
-    th {
-      &:nth-child(1)  { width: 2rem; }
-      &:nth-child(2)  { width: 14rem; }
-      &:nth-child(3)  { width: 8rem; }
-      &:nth-child(4)  { width: 6rem; }
-      &:nth-child(5)  { width: 4rem; }
-    }
-
-
 }
 

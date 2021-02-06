@@ -26,10 +26,13 @@ import { WaiterComponent } from './components/waiter/waiter.component';
 import { ChefComponent } from './components/chef/chef.component';
 import { DynamicBoardComponent } from './components/waiter/dynamic-board/dynamic-board.component';
 import { ProductsComponent } from './components/waiter/dynamic-board/products/products.component';
-import { OrderListComponent } from './components/waiter/order-list/order-list.component';
+import { OrderListComponent } from './components/waiter/dynamic-board/order-list/order-list.component';
 import { OrderComponent } from './components/waiter/order/order.component';
 import { ProductsCategoryComponent } from './components/waiter/dynamic-board/products/products-category/products-category.component';
-import { OrderItemComponent } from './components/waiter/order/order-item/order-item.component';
+import { ProductItemComponent } from './components/waiter/order/product-item/product-item.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { OrderItemComponent } from './components/orders/order-item/order-item.component';
+import { OrderChefComponent } from './components/chef/order-chef/order-chef.component';
 
 
 @NgModule({
@@ -44,7 +47,10 @@ import { OrderItemComponent } from './components/waiter/order/order-item/order-i
     OrderListComponent,
     OrderComponent,
     ProductsCategoryComponent,
+    ProductItemComponent,
+    OrdersComponent,
     OrderItemComponent,
+    OrderChefComponent,
   ],
   imports: [
     BrowserModule,

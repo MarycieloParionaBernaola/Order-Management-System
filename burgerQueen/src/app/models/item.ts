@@ -1,6 +1,6 @@
 import { Product } from "./product";
 
-export class OrderItem {
+export class Item {
   id?: number;
   productId?: string;
   productName?: string;
@@ -9,6 +9,7 @@ export class OrderItem {
   units?: number;
   unitPrice?: number;
   subTotalPrice?: number;
+  extra?: boolean;
   extraProduct?: String;
   kindOfMeat?: String;
 
@@ -21,6 +22,7 @@ export class OrderItem {
     this.units = units;
     this.unitPrice = product.price;
     this.subTotalPrice = product.price;
+    this.extra = product.extra;
     this.extraProduct = '';
     this.kindOfMeat = '';
   }

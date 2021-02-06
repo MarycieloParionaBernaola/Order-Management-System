@@ -1,0 +1,31 @@
+<div class="order-container">
+    <h2 class="order"> ORDER N° {{selectedOrder.number}} </h2>
+    <h3 class="table"> TABLE: {{selectedOrder.tableNumber}} </h3>
+    <p class="time-received"> {{selectedOrder.timeReceived | date:'shortTime' }} </p>
+    <p class="client"> CLIENT: {{selectedOrder.clientName}} </p>
+    <div class="chef-time" *ngIf="selectedOrder.preparationTime !== ''">
+      <p> PREPARATION: {{selectedOrder.preparationTime | date:'mm:ss' }} min </p>
+      <p> DONE: {{selectedOrder.timeDone | date:'shortTime' }} </p>
+    </div>
+    <div class="items">
+      <p>ITEMS</p>
+      <ul *ngFor="let item of items">
+        <li>{{item}}</li>
+      </ul>
+    </div>
+    <span class="details" *ngIf="selectedOrder.orderDetail !== ''"> ✍ {{selectedOrder.orderDetail}}</span>
+    <div class="preparation-time" *ngIf="selectedOrder.preparationTime === ''">
+      <button class="start" (click)="startTimer()"><fa-icon [icon]="startText"></fa-icon></button>
+      <div class="counter-container">
+        <p *ngIf="counter === undefined || 0"> 00:00 </p>
+        <p>{{counter | date:'mm:ss' }}</p>
+      </div>
+      <button class="clear" (click)="clearTimer()"><fa-icon [icon]="undo"></fa-icon></button><br>
+      <button class="ready" (click)="orderReady()">Ready</button>
+    </div>
+    <div class="waiter-time" *ngIf="router.url === '/waiter'">
+      <button class="delivered" (click)="orderDevelired()">Delivered</button>
+    </div>
+    <p class="date-received"> {{selectedOrder.timeReceived | date:'fullDate' }} </p>
+</div>
+

@@ -1,0 +1,18 @@
+
+li {
+  vertical-align: top;
+  line-height: 1.8rem;
+}
+
+fa-icon {
+  font-size: 1.4rem;
+  margin: 0.1rem;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 1024px) {
+  fa-icon {
+    font-size: 1.4rem;
+    margin: 0.4rem;
+  }
+}

@@ -8,5 +8,5 @@ export interface Product {
   name?: string;
   units?: number;
   price?: number;
-  extras?: boolean;
+  extra?: boolean;
 }

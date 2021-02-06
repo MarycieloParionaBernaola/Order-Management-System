@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
-  selector: 'app-chef',
-  templateUrl: './chef.component.html',
-  styleUrls: ['./chef.component.scss']
+  selector: 'app-orders',
+  templateUrl: './orders.component.html',
+  styleUrls: ['./orders.component.scss']
 })
-export class ChefComponent implements OnInit {
+export class OrdersComponent implements OnInit {
 
   public orders: any = [];
 
@@ -18,6 +18,7 @@ export class ChefComponent implements OnInit {
       this.orders = result;
       console.log(this.orders);
     })
+
   }
 
 }

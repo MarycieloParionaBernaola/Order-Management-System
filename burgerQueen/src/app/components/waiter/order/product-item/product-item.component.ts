@@ -1,24 +1,24 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { OrderItem } from 'src/app/models/order-item';
+import { Item } from 'src/app/models/item';
 import { faTrash, faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
-  selector: 'tr[app-order-item]',
-  templateUrl: './order-item.component.html',
-  styleUrls: ['./order-item.component.scss']
+  selector: 'li[app-product-item]',
+  templateUrl: './product-item.component.html',
+  styleUrls: ['./product-item.component.scss']
 })
-export class OrderItemComponent implements OnInit {
+export class ProductItemComponent implements OnInit {
+
+  @Input() selectedItem: Item;
+  @Output() deleteItemEmitter = new EventEmitter<Number>();
 
   trashIcon = faTrash;
   plusIcon = faPlusCircle;
   minusIcon = faMinusCircle;
 
-  @Input() selectedItem: OrderItem;
-  @Output() deleteItemEmitter = new EventEmitter<Number>();
-
   public meats: any = [
-    { kind: 'meat'},
+    { kind: ''},
     { kind: 'beef'},
     { kind: 'chicken'},
     { kind: 'veggie'},
@@ -40,13 +40,11 @@ export class OrderItemComponent implements OnInit {
     } else {
       item.subTotalPrice = item.unitPrice * item.units;
     }
-    console.log(item.subTotalPrice)
   }
 
   addUnit(item: any) {
     item.units += 1;
     this.subTotalPrice(item);
-    console.log(this.selectedItem)
   }
 
   subtractUnit(item: any) {
