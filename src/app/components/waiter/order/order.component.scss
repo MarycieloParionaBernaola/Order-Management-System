@@ -142,7 +142,7 @@ p {
   form {
     .input-container {
       input {
-        &[type=text] { width: 7rem; }
+        &[type=text] { width: 6rem; }
         &[type=number] { width: 3rem; }
       }
     }
@@ -158,5 +158,14 @@ p {
   .items-container {
     width: 100%;
     padding: 0.8rem;
+    .body {
+      height: 250px;
+    }
+  }
+
+  form {
+    .input-container {
+      width: 100%;
+    }
   }
 }

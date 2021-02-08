@@ -1,6 +1,6 @@
 <header>
-  <h1 *ngIf="!mobile">Sha&Mar</h1>
-  <h1 *ngIf="mobile">SM</h1>
+  <a *ngIf="!mobile" [routerLink]="['']" [routerLinkActive]="['is-active']"><h1>Sha&Mar</h1></a>
+  <a *ngIf="mobile" [routerLink]="['']" [routerLinkActive]="['is-active']"><h1>SM</h1></a>
 <form *ngIf="router.url === '/waiter'">
   <fa-icon [icon]="searchIcon"></fa-icon>
   <input type="search" placeholder="Search" #search [(ngModel)]="searchInput" autocomplete="off" (keyup)="onKey($event)" [ngModelOptions]="{standalone: true}">
@@ -10,5 +10,10 @@
     <h2 *ngIf="!mobile">Waiter</h2>
     <img src="../../../assets/waiter-avatar.png" alt="waiter-photo">
     <fa-icon [icon]="notificationIcon" (click)="alertOrderDone($event)"></fa-icon>
+</div>
+<div *ngIf="router.url === '/chef'">
+  <h2 *ngIf="!mobile">Chef</h2>
+  <img src="../../../assets/chef-avatar.svg" alt="chef-photo">
+  <fa-icon [icon]="notificationIcon"></fa-icon>
 </div>
 </header>

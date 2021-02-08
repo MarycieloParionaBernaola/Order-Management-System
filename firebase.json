@@ -5,6 +5,13 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
+    ],
+    "rewrites": [ {
+      "source": "/waiter/**",
+      "dynamicLinks": true
+    }, {
+      "source": "/chef/**",
+      "dynamicLinks": true
+    } ]
   }
 }

@@ -33,6 +33,7 @@ import { ProductItemComponent } from './components/waiter/order/product-item/pro
 import { OrdersComponent } from './components/orders/orders.component';
 import { OrderItemComponent } from './components/orders/order-item/order-item.component';
 import { OrderChefComponent } from './components/chef/order-chef/order-chef.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { OrderChefComponent } from './components/chef/order-chef/order-chef.comp
     OrdersComponent,
     OrderItemComponent,
     OrderChefComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { OrderDoneAlertService } from '../../../services/order-done-alert.service';
 import { FilterProductsService } from '../../../services/filter-products.service';
 import { SearchProductsService } from '../../../services/search-products.service';
@@ -8,7 +8,7 @@ import { SearchProductsService } from '../../../services/search-products.service
   templateUrl: './dynamic-board.component.html',
   styleUrls: ['./dynamic-board.component.scss']
 })
-export class DynamicBoardComponent implements OnInit, OnDestroy {
+export class DynamicBoardComponent implements OnInit {
 
   public serviceReceived: any;
 
@@ -26,10 +26,6 @@ private filterProductsService: FilterProductsService, private searchProductsServ
     this.searchProductsService.searchProducts.subscribe(result => {
       this.serviceReceived = result;
     });
-  }
-
-  ngOnDestroy(): void {
-    this.serviceReceived.unsubscribe()
   }
 
 }
