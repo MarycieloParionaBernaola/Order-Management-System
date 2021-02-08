@@ -27,7 +27,7 @@
         <li>{{getTotal() | currency }}</li>
       </ul>
     </div>
-    <textarea formControlName="orderDetail" rows="1.5" cols="30" placeholder="✍ add some details to order..." spellcheck="false"></textarea><br>
+    <textarea formControlName="orderDetail" rows="1.5" cols="28" placeholder="✍ add some details to order..." spellcheck="false"></textarea><br>
     <button [ngClass]="isSelected && submitted && items.length !==0? 'isClicked': 'noClicked'" type="submit">SEND</button>
   </ng-container>
 </form>

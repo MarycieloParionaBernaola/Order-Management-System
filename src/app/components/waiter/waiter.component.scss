@@ -18,3 +18,14 @@
     grid-template-columns: 2.7rem 50% 1fr;
 }}
 
+@media only screen and (max-width: 600px) {
+  :host {
+    display: grid;
+    grid-template-areas:
+    'side-bar'
+    'dynamic-board'
+    'order';
+    grid-template-rows: 2.7rem 0.5fr 1fr;
+    grid-template-columns: 100%;
+}}
+
