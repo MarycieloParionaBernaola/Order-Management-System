@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   searchIcon = faSearch;
   cancelIcon = faTimes;
   notificationIcon = faBell;
-
+  mobile: boolean;
   inputValue: any;
   searchInput: string;
   alertClicked: any;
@@ -22,6 +22,9 @@ export class HeaderComponent implements OnInit {
   constructor(public router: Router, private searchProductsService: SearchProductsService, private orderDoneAlertService: OrderDoneAlertService) { }
 
   ngOnInit(): void {
+    if (window.screen.width <= 600) {
+    this.mobile = true;
+  }
     this.searchProductsService.searchProducts.subscribe(result => {
       this.inputValue = result;
     });
