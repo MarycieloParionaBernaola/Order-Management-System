@@ -4,14 +4,15 @@
   @include containers(1rem 0px, 0px);
   grid-area: side-bar;
   width: 100%;
+  min-height: 91.5vh;
   text-align: center;
-  background-color: #241e20;
+  background-color: #007580;
 }
 
 .selected {
-  color: #ffdd1c;
+  color: #FED049;
   border: 1.5px solid rgba(77, 77, 77, 0.49);
-  border-left: 4px solid #ffdd1c;
+  border-left: 4px solid #FED049;
 }
 
 ul {
@@ -37,6 +38,7 @@ ul {
   :host {
     display: flex;
     padding: 0rem 0.5rem;
+    min-height: auto;
   }
 
   ul {

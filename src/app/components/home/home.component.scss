@@ -4,27 +4,35 @@
 }
 
 .background-home {
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
-  background: url('../../../assets/buger-wallpaper.jpg') no-repeat center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  background: url('../../../assets/burger-bg-home.png') no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
+
 .button-home {
-  background-color: #ffdd1c;
-  width: 200px;
-  color: #383134;
+  font-family: 'Spartan', sans-serif;;
+  width: 180px;
+  color: #fff;
   margin: 1.5rem;
   padding: 1rem;
-  font-weight: bold;
   font-size: 1.2rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   text-align: center;
+}
+
+.waiter {
+  background-color: #007580ef;
+}
+
+.chef {
+  background-color: #282846;
 }
