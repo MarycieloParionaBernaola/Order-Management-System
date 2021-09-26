@@ -13,7 +13,7 @@ header {
   justify-content: space-between;
   align-items: center;
   margin: auto;
-  padding: 0rem 2rem;
+  padding: 1rem 2rem;
   background-color: #FED049;
 
   h1 {
@@ -22,26 +22,37 @@ header {
     color: #3a3336;
   }
 
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
   form {
     @include containers(0.1rem 0.5rem, 0.5rem);
-    color: #CACACA;
-    background-color: whitesmoke;
     margin: auto;
     font-size: 1rem;
-    color: gray;
+    color: #fff;
+    text-align: center;
+    background-color: #282846;
+
 
       input {
         width: 12rem;
-        height: 1.9rem;
-        color: #CACACA;
+        height: 2.4rem;
         background-color: transparent;
         border: none;
         outline: none;
-        padding: 0 0.4rem;
-        color: #222;
+        padding: 0.5rem;
+        text-align: center;
+        color: #fff;
         &::-webkit-search-cancel-button {
           -webkit-appearance: none;
         }
+      }
+
+      fa-icon{
+        color: #fff;
+        font-size: 1.2rem;
       }
   }
 
@@ -57,14 +68,16 @@ header {
     }
 
     img {
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       margin-left: 10px;
     }
 
     fa-icon {
       margin-left: 0.6rem;
       cursor: pointer;
+      font-size: 1.4rem;
+      align-self: flex-start;
     }
   }
 }

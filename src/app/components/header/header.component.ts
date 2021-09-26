@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
   constructor(public router: Router, private searchProductsService: SearchProductsService, private orderDoneAlertService: OrderDoneAlertService) { }
 
   ngOnInit(): void {
-    if (window.screen.width <= 600) {
+    if (window.screen.width <= 768) {
     this.mobile = true;
   }
     this.searchProductsService.searchProducts.subscribe(result => {

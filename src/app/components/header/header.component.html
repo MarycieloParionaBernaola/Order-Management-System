@@ -1,9 +1,9 @@
 <header>
-  <a *ngIf="!mobile" [routerLink]="['']" [routerLinkActive]="['is-active']"><h1>Shay&Mar</h1></a>
-  <a *ngIf="mobile" [routerLink]="['']" [routerLinkActive]="['is-active']"><h1>SM</h1></a>
+  <a *ngIf="!mobile" [routerLink]="['']" [routerLinkActive]="['is-active']"><img src="../../../assets/burger-queen-logo.png" alt="chef-photo"><h1>Burger Queen</h1></a>
+  <a *ngIf="mobile" [routerLink]="['']" [routerLinkActive]="['is-active']"><img src="../../../assets/burger-queen-logo.png" alt="chef-photo"></a>
 <form *ngIf="router.url === '/waiter'">
   <fa-icon [icon]="searchIcon"></fa-icon>
-  <input type="search" placeholder="Search" #search [(ngModel)]="searchInput" autocomplete="off" (keyup)="onKey($event)" [ngModelOptions]="{standalone: true}">
+  <input type="search" #search [(ngModel)]="searchInput" autocomplete="off" (keyup)="onKey($event)" [ngModelOptions]="{standalone: true}">
   <fa-icon [icon]="cancelIcon" *ngIf="search.value !== ''" (click)="clearInput()"></fa-icon>
 </form>
 <div *ngIf="router.url === '/waiter'">
