@@ -1,0 +1,5 @@
+<form>
+  <fa-icon [icon]="searchIcon"></fa-icon>
+  <input type="search" #search [(ngModel)]="searchInput" autocomplete="off" (keyup)="onKey($event)" [ngModelOptions]="{standalone: true}">
+  <fa-icon class="cursor-pointer" [icon]="cancelIcon" *ngIf="search.value !== ''" (click)="clearInput()"></fa-icon>
+</form>

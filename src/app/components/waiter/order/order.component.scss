@@ -4,9 +4,8 @@
  // @include containers(1rem 0.6rem 0.6rem 0.6rem, 13px);
   grid-area: order;
   width: 100%;
-  height: 100%;
   padding: 1rem;
-  border-left: 0.5px solid #ffdd1c;
+  border-left: 0.5px solid #fecdcb;
 }
 
 h2 {
@@ -15,8 +14,8 @@ h2 {
 }
 
 .isClicked {
-  border: 0.5px solid #ffdd1c !important;
-  color: #ffdd1c !important;
+  border: 0.5px solid #fecdcb !important;
+  color: #fecdcb !important;
   outline: none;
 }
 
@@ -47,15 +46,15 @@ form {
       &:nth-child(4) { grid-area: table-number; }
       p {
         margin: 0.3rem 0rem 0rem 0rem;
-        color: red;
+        color: rgb(253, 100, 100);
       }
     }
     input {
       @include containers(0.5rem, 0.5rem);
       @include inputs(4rem, none);
       font-size: 0.8rem;
-      &[type=text] { width: 12rem; }
-      &[type=number] { -moz-appearance: textfield; }
+      &[type=text] { width: 12rem; color: #30262E; font-weight: 700;}
+      &[type=number] { -moz-appearance: textfield;  color: #30262E; font-weight: 700; }
       &::-webkit-outer-spin-button,
       &::-webkit-inner-spin-button {
         -webkit-appearance: none;
@@ -66,20 +65,29 @@ form {
   }
   textarea {
     resize: none;
+    border: none;
+    color: #30262E;
+    font-weight: 700;
+    width: 60%;
     margin-top: 1rem;
-    background-color: whitesmoke;
-    font-size: 0.8rem;
-    @include containers(0.6rem, 0.5rem);
+    background-color: #fff;
+    font-size: 0.9rem;
+    @include containers(0.7rem, 0.5rem);
+  }
+
+  textarea::placeholder{
+    color: #30262E;
   }
 
   button {
     @include containers(0.7rem, 0.5rem);
     width: 30%;
-    background-color: #241e20;
-    border: 0.5px solid gray;
+    background-color: #D7C1A4;
+    color: #333;
+    font-weight: 700;
     margin: 1rem auto;
     &:hover {
-      border: 0.5px solid #ffdd1c;
+      border: 0.5px solid #fecdcb;
     }
 
   }
@@ -91,7 +99,6 @@ form {
   border-radius: 1.5rem;
   font-size: 0.9rem;
   padding: 1rem;
-  background-color: #241e20c2;
   margin: auto;
   width: 90%;
   display: grid;
@@ -101,16 +108,17 @@ form {
   'footer';
   justify-content: center;
 
+
   .columns {
     display: grid;
     width: 100%;
     grid-template-columns: 1.7rem 2.7fr 2.5fr 1.2fr 1.7rem ;
   }
 
-  .header { grid-area: header; }
+  .header { grid-area: header; border-bottom: 1px solid #fecdcb; }
   .body {
     grid-area: body;
-    height: 180px;
+    height: 240px;
     overflow-y: auto;
     overflow-x: hidden;
     &::-webkit-scrollbar {
@@ -120,16 +128,20 @@ form {
 
     &::-webkit-scrollbar-thumb {
       border-radius: 1rem;
-      background-color: gray;
+      background-color: #fecdcb;
     }
   }
   .footer {
     grid-area: footer;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); }
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid #fecdcb; }
 
+  ul li {
+    padding: 0.5rem;
   }
 
+  }
 
 
 p {
@@ -138,34 +150,31 @@ p {
 
 
 @media only screen and (max-width: 768px) {
-  table { width: 95%; }
-  form {
-    .input-container {
-      input {
-        &[type=text] { width: 6rem; }
-        &[type=number] { width: 3rem; }
-      }
-    }
+  :host {
+    border-top: 0.5px solid #fecdcb;
+    border-left: none;
   }
 }
 
 @media only screen and (max-width: 600px) {
   :host {
-    border-top: 0.5px solid #ffdd1c;
+    border-top: 0.5px solid #fecdcb;
     border-left: none;
   }
 
   .items-container {
     width: 100%;
     padding: 0.8rem;
-    .body {
-      height: 250px;
-    }
   }
 
   form {
     .input-container {
       width: 100%;
+      input {
+        &[type=text] { width: 6rem; }
+        &[type=number] { width: 3rem; }
+      }
     }
   }
+
 }

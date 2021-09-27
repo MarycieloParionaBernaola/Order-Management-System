@@ -10,9 +10,7 @@
   height: 400px;
   margin: 1rem;
   padding: 1rem;
-  color: #444444;
-  background-color: white;
-  border: 2px solid #ffa700;
+  border: 2px solid #D7C1A4;
   display: grid;
   grid-template-areas:
   'order order'
@@ -84,12 +82,11 @@
   button {
     @include containers(0.6rem, 50%);
     width: fit-content;
-    border: 0.5px solid #241e20;
-    background-color: #241e20;
-    color: whitesmoke;
+    background-color: #fecdcb;
+    color: #333;
     outline: none;
     &:hover {
-      color: #ffdd1c;
+      color: #30262E;
     }
 
   }

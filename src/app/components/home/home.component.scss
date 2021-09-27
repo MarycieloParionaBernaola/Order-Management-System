@@ -10,7 +10,7 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  background: url('../../../assets/burger-bg-home.png') no-repeat center fixed;
+  background: url('../../../assets/raul-varzar-DIf2dwNjaOE-unsplash.jpg') no-repeat center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -19,20 +19,16 @@
 
 
 .button-home {
-  font-family: 'Spartan', sans-serif;;
-  width: 180px;
-  color: #fff;
+  font: normal 600 1.4rem 'Shadows Into Light', cursive;
+  width: 160px;
+  color: #333;
   margin: 1.5rem;
   padding: 1rem;
-  font-size: 1.2rem;
   border-radius: 0.5rem;
   text-align: center;
+  background-color: #fecdcb;
+  fa-icon {
+    font-size: 1.2rem;
+  }
 }
 
-.waiter {
-  background-color: #007580ef;
-}
-
-.chef {
-  background-color: #282846ee;
-}

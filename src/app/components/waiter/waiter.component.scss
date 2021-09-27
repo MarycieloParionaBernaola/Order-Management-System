@@ -3,29 +3,23 @@
   height: 100%;
   display: grid;
   grid-template-areas:
-  'side-bar dynamic-board order';
-  grid-template-columns: 2.7rem 40% 1fr;
-  grid-template-rows: 100%;
+  'search-bar order'
+  'side-bar order'
+  'dynamic-board order';
+  grid-template-rows: 3rem 3rem 1fr;
+  grid-template-columns: 50% 1fr;
 }
 
-@media only screen and (min-width: 1024px) {
-  :host {
-    grid-template-columns: 2.7rem 47% 1fr;
-}}
-
-@media only screen and (min-width: 1440px) {
-  :host {
-    grid-template-columns: 2.7rem 50% 1fr;
-}}
 
 @media only screen and (max-width: 768px) {
   :host {
     display: grid;
     grid-template-areas:
+    'search-bar'
     'side-bar'
     'dynamic-board'
     'order';
-    grid-template-rows: 2.7rem 0.5fr 1fr;
+    grid-template-rows: 3rem 3rem 1fr 50%;
     grid-template-columns: 100%;
 }}
 

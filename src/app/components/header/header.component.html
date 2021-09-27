@@ -1,14 +1,9 @@
 <header>
-  <a *ngIf="!mobile" [routerLink]="['']" [routerLinkActive]="['is-active']"><img src="../../../assets/burger-queen-logo.png" alt="chef-photo"><h1>Burger Queen</h1></a>
-  <a *ngIf="mobile" [routerLink]="['']" [routerLinkActive]="['is-active']"><img src="../../../assets/burger-queen-logo.png" alt="chef-photo"></a>
-<form *ngIf="router.url === '/waiter'">
-  <fa-icon [icon]="searchIcon"></fa-icon>
-  <input type="search" #search [(ngModel)]="searchInput" autocomplete="off" (keyup)="onKey($event)" [ngModelOptions]="{standalone: true}">
-  <fa-icon [icon]="cancelIcon" *ngIf="search.value !== ''" (click)="clearInput()"></fa-icon>
-</form>
+  <a  [routerLink]="['']" [routerLinkActive]="['is-active']"><img src="../../../assets/burger-queen-logo.png" alt="burger-queen-logo"></a>
+  <h1 *ngIf="!mobile" [routerLink]="['']" [routerLinkActive]="['is-active']">Burger Queen</h1>
 <div *ngIf="router.url === '/waiter'">
     <h2 *ngIf="!mobile">Waiter</h2>
-    <img src="../../../assets/waiter-avatar.png" alt="waiter-photo">
+    <img src="../../../assets/waitress-icon-2.png" alt="waiter-photo">
     <fa-icon [icon]="notificationIcon" (click)="alertOrderDone($event)"></fa-icon>
 </div>
 <div *ngIf="router.url === '/chef'">

@@ -34,6 +34,7 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { OrderItemComponent } from './components/orders/order-item/order-item.component';
 import { OrderChefComponent } from './components/chef/order-chef/order-chef.component';
 import { HomeComponent } from './components/home/home.component';
+import { SearchBarComponent } from './components/waiter/search-bar/search-bar.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { HomeComponent } from './components/home/home.component';
     OrderItemComponent,
     OrderChefComponent,
     HomeComponent,
+    SearchBarComponent,
   ],
   imports: [
     BrowserModule,

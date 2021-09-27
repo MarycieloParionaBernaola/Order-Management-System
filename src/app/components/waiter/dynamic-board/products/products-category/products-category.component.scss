@@ -1,7 +1,7 @@
 @import '../../../../../../mixin.scss';
 
 .selected {
-  border: 3px solid #FED049 !important;
+  border: 2px solid #fecdcb!important;
 }
 
 ul {
@@ -30,7 +30,7 @@ ul {
 }
 
 &::-webkit-scrollbar-thumb {
-  background-color: grey;
+  background-color: #fecdcb;
   border-radius: 20px;
 }
 
@@ -41,10 +41,10 @@ li {
   cursor: pointer;
   margin: 5px;
   flex: 0 0 auto;
-  background-color: white;
+  background-color: #fff;
 
   &:hover {
-    border: 2px solid #ffa700;
+    border: 3px solid #fecdcb;
     cursor: pointer;
   }
 
@@ -55,7 +55,7 @@ li {
     grid-template-columns: 100%;
     grid-template-rows: 63% 25% 12%;
     font-size: 0.9rem;
-    color: #444444;
+    color: #30262E;
 
     img {
       width: 100%;

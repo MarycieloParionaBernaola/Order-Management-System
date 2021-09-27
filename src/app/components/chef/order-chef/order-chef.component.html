@@ -13,7 +13,7 @@
         <li>{{item}}</li>
       </ul>
     </div>
-    <span class="details" *ngIf="selectedOrder.orderDetail !== ''"> ✍ {{selectedOrder.orderDetail}}</span>
+    <span class="details" *ngIf="selectedOrder.orderDetail !== ''"> ✏️ {{selectedOrder.orderDetail}}</span>
     <div class="preparation-time" *ngIf="selectedOrder.preparationTime === ''">
       <button class="start" (click)="startTimer()"><fa-icon [icon]="startText"></fa-icon></button>
       <div class="counter-container">

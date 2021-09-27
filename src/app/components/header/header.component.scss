@@ -3,7 +3,7 @@
 
 :host {
   width: 100%;
-  color: #3a3336;
+  color: #222;
 }
 
 header {
@@ -14,47 +14,29 @@ header {
   align-items: center;
   margin: auto;
   padding: 1rem 2rem;
-  background-color: #FED049;
+  background-color: #fecdcb;
+  color: #333;
+  box-shadow: 3px 4px 5px rgb(0 0 0 / 50%);
+
+
+  a {
+    display: flex;
+  }
+
+
+
+  img {
+    width: 80px;
+    height: 80px;
+  }
 
   h1 {
     font: normal 600 55px/88px 'Shadows Into Light', cursive;
     letter-spacing: 0em;
-    color: #3a3336;
+    color: #333;
   }
 
-  img {
-    width: 100px;
-    height: 100px;
-  }
 
-  form {
-    @include containers(0.1rem 0.5rem, 0.5rem);
-    margin: auto;
-    font-size: 1rem;
-    color: #fff;
-    text-align: center;
-    background-color: #282846;
-
-
-      input {
-        width: 12rem;
-        height: 2.4rem;
-        background-color: transparent;
-        border: none;
-        outline: none;
-        padding: 0.5rem;
-        text-align: center;
-        color: #fff;
-        &::-webkit-search-cancel-button {
-          -webkit-appearance: none;
-        }
-      }
-
-      fa-icon{
-        color: #fff;
-        font-size: 1.2rem;
-      }
-  }
 
   div {
     display: flex;
@@ -86,7 +68,7 @@ header {
 @media only screen and (max-width: 600px) {
 
   header {
-    padding: 0 1rem;
+    padding: 1rem;
 
     form {
       font-size: 0.9rem;
