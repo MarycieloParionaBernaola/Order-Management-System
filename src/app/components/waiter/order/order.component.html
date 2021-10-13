@@ -2,7 +2,7 @@
 
 <form [formGroup]="orderForm" (ngSubmit)="sendOrder()">
   <div class="input-container">
-    <label>WAITER: <input type="text" value="WAITER" disabled></label>
+    <label>WAITRESS: <input type="text" value="WAITRESS" disabled></label>
     <label>ORDER: <input type="number" value={{orderNumber}} disabled></label>
     <label>CLIENT: <input type="text" formControlName="clientName" oninput="this.value = this.value.toUpperCase()" required>
       <p *ngIf="clientName.hasError('required') && submitted && items.length!==0">Enter the client name</p></label>

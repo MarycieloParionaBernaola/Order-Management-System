@@ -6,7 +6,7 @@ import { ChefComponent } from './components/chef/chef.component';
 import { OrdersComponent } from './components/orders/orders.component';
 
 const routes: Routes = [
-  { path: 'waiter', component: WaiterComponent },
+  { path: 'waitress', component: WaiterComponent },
   { path: 'chef', component: ChefComponent },
   { path: 'orders', component: OrdersComponent },
   { path: '', component: HomeComponent , pathMatch: 'full'},
